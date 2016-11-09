@@ -57,7 +57,9 @@ html,body{
   bottom: 80px;
   width: 100%;
   color: #666;
-  overflow-y: scroll;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
 }
 dl{
   display: flex;
