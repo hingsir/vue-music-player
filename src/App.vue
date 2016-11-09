@@ -63,6 +63,7 @@ dl{
   display: flex;
   align-items: center;
   padding: 10px 10px 10px 0;
+  cursor: pointer;
 }
 dl:nth-child(odd){
   background: #f3f3f3;

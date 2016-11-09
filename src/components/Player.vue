@@ -204,6 +204,7 @@ function formatTime(seconds){
   text-align: center;
   text-indent: -99999px;
   background-size: 100% 100%;
+  cursor: pointer;
 }
 .controls .control-mode{
   position: absolute;
