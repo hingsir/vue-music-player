@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <img id="avatar" src="./assets/avatar.jpg" alt="">
+    <div id="avatar">
+      <img src="./assets/avatar.jpg" alt="">
+    </div>
     <div class="song-list">
       <template v-for="(song, index) in shareState.songList">
         <dl @click="playCurSong(song)" :class="{'current': song.src == shareState.curSong.src}">
