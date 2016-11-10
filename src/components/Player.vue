@@ -82,16 +82,13 @@ export default {
       this.status = 'play'
       this.$refs.audio.pause()
     },
-    play_pause: (function(flag){
-      return function(){
-        flag = !flag
-        if(flag){
-          this.play()
-  	    }else{
-          this.pause()
-        }
+    play_pause: function(){
+      if(this.status == 'play'){
+        this.play()
+      }else{
+        this.pause()
       }
-    })(0),
+    },
     switchMode: function(){
       var mode = modes.next()
       this.setMode(mode)

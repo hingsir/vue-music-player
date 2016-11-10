@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <img id="avatar" src="./assets/avatar.jpg" alt="">
     <div class="song-list">
       <template v-for="(song, index) in shareState.songList">
         <dl @click="playCurSong(song)" :class="{'current': song.src == shareState.curSong.src}">
@@ -30,15 +31,17 @@ export default {
   methods: {
     playCurSong (song){
       this.shareState.curSong = song
+      location.hash = this.shareState.songList.length - this.shareState.songList.indexOf(song)
     }
   },
   mounted: function(){
     scrollCurrentIntoView()
   },
   watch: {
-    'shareState.curSong': function(){
+    'shareState.curSong': function(value){
       this.$nextTick(function(){
         scrollCurrentIntoView()
+        location.hash = this.shareState.songList.length - this.shareState.songList.indexOf(value)
       })
     }
   }
@@ -74,6 +77,9 @@ html,body{
   margin: 0 auto;
   font: 14px/1.2 'Microsoft Yahei';
 }
+#avatar{
+  display: none;
+}
 .song-list{
   position: absolute;
   left: 0;
@@ -81,6 +87,7 @@ html,body{
   bottom: 80px;
   width: 100%;
   color: #666;
+  background: #fff;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overflow-scrolling: touch;
