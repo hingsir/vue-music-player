@@ -31,7 +31,31 @@ export default {
     playCurSong (song){
       this.shareState.curSong = song
     }
+  },
+  mounted: function(){
+    scrollCurrentIntoView()
+  },
+  watch: {
+    'shareState.curSong': function(){
+      this.$nextTick(function(){
+        scrollCurrentIntoView()
+      })
+    }
   }
+}
+function scrollCurrentIntoView(){
+  let current = document.querySelector('.current')
+  if(!isInView(current)){
+    document.querySelector('.current').scrollIntoView()
+  }
+}
+function isInView(el){
+  let ctxHeight = document.querySelector('.song-list').clientHeight
+  let rect = el.getBoundingClientRect()
+  if(rect.top < 0 || rect.top > ctxHeight - rect.height){
+    return false
+  }
+  return true
 }
 </script>
 
