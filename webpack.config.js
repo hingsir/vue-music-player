@@ -12,19 +12,19 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue',
+        loader: 'vue-loader',
         options: {
           // vue-loader options go here
         }
       },
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         exclude: /node_modules/
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'url?limit=10000&name=[name].[ext]?[hash]'
+        loader: 'url-loader?limit=10000&name=[name].[ext]?[hash]'
       }
     ]
   },
